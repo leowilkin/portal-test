@@ -1,0 +1,261 @@
+<?php
+   ob_start();
+   session_start();
+?>
+
+<?
+   // error_reporting(E_ALL);
+   // ini_set("display_errors", 1);
+?>
+
+<html lang = "en">
+   
+   <head>
+      <title>Secure Portal - Login</title>
+      <meta charset="utf-8">
+        <link rel='icon' href='favicon.ico' type='image/x-icon'/ >
+      <link href = "css/bootstrap.min.css" rel = "stylesheet">
+      
+      <style>
+           
+        h1 {
+            color: #409E49;
+            font-family:consolas;
+            font-size: 42px;
+            text-align:center;
+        }  
+
+        h2 {
+            color:#409E49;
+            font-family:consolas;
+        }  
+        h3 {
+            color: #409E49;
+            font-family:consolas;
+        }
+        h4 {
+            color: #FFFFFF;
+            font-family:consolas;
+        }
+        h8 {
+            color: #409E49;
+            font-family:consolas;
+        }
+        body {
+              background-color: white
+        }
+        p {
+           color: blue;
+           font-family:consolas;
+        }
+        a {
+           color:darkblue;
+           font-family:consolas;
+           text-decoration:bold;
+        } 
+        #container {
+                    width: auto;
+                    margin: auto;
+                    border: 1px solid black;
+                    border-top: 10px solid blue;
+                    padding: 15px;
+                    height: auto;
+        }
+        #container2 {
+                      width: auto;
+                      margin: auto;
+                      border: 1px solid black;
+                      padding-bottom: 5px;
+                      padding-left: 5px;
+                      padding-right: 5px;
+                      padding-top: 10px;
+                      text-align: center;
+                      
+                      
+        }
+         .form-signin {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+            color: #017572;
+         }
+         
+         .form-signin .form-signin-heading,
+         .form-signin .checkbox {
+            margin-bottom: 10px;
+         }
+         
+         .form-signin .checkbox {
+            font-weight: normal;
+         }
+         
+         .form-signin .form-control {
+            position: relative;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+         }
+         
+         .form-signin .form-control:focus {
+            z-index: 2;
+         }
+         
+         .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            border-color:#017572;
+         }
+         
+         .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-color:#017572;
+         }
+         
+         h2{
+            text-align: center;
+            color: #017572;
+         }
+         /* Add a black background color to the top navigation */
+.topnav {
+  background-color: green;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: rgb(44, 172, 251);
+  color: white;
+  
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: rgb(58, 229, 58);
+  color: white;
+}
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #409E49;
+  color: white;
+  margin-bottom: 15px;
+  font-family:consolas;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 30px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: lightskyblue;
+}
+      </style>
+      
+   </head>
+	
+   <body>
+      <div id="container">
+         <div class="alert">
+           <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+           Currently under construction, can be out of access at any time. <a href="mailto:leo.wilkin10@gmail.com">Email</a> the webmaster for more information.
+         </div>   
+         <h1><u><strong>Secure Portal</strong></u></h1>
+         <div class="topnav">
+           <a href="index.html">Home</a>
+           <a href="email.html">Contact</a>
+           <a class="active" href="login.html">Login</a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="index.html"></a>
+           <a href="logout.html">Logout</a>
+         </div>
+      <h1>Enter Username and Password</h1> 
+      <div class = "container form-signin">
+         
+         <?php
+            $msg = 'Hello!';
+            
+            if (isset($_POST['login']) && !empty($_POST['username']) 
+               && !empty($_POST['password'])) {
+				
+               if ($_POST['username'] == 'leowilkin' && 
+                  $_POST['password'] == '2486') {
+                  $_SESSION['valid'] = true;
+                  $_SESSION['timeout'] = time(200);
+                  $_SESSION['username'] = 'leowilkin';
+                  
+                  echo 'You have entered valid use name and password';
+               }else {
+                  $msg = 'Wrong username or password';
+               }
+            }
+         ?>
+      </div> <!-- /container -->
+      
+      <div class = "container">
+      
+         <form class = "form-signin" role = "form" 
+            action = "loggedin.html" method = "post">
+            <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
+            <input type = "text" class = "form-control" 
+               name = "username" placeholder = "Username" 
+               required autofocus></br>
+            <input type = "password" class = "form-control"
+               name = "password" placeholder = "Password" required>
+            <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
+               name = "login">Login</button>
+         </form>
+			
+         <h3>Click here to clean <a href = "logout.html" tite = "Logout">Session</a>.</h3>
+         
+         
+      </div> 
+      
+   </body>
+</html>
